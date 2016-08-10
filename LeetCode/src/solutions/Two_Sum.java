@@ -15,7 +15,6 @@ public class Two_Sum {
     public static void main(String[] args){
     	Two_Sum ts = new Two_Sum();
     	int[] solution = ts.twoSum(new int[]{3,2,4}, 6);
-    	System.out.printf("[%d,%d]", solution[0], solution[1]);
-    	
+    	System.out.printf("[%d,%d]", solution[0], solution[1]);   	
     }
 }
