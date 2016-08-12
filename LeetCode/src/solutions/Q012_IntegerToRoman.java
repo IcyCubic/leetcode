@@ -3,6 +3,8 @@ package solutions;
 Given an integer, convert it to a roman numeral.
 
 Input is guaranteed to be within the range from 1 to 3999.
+
+Brute force-ish, can probably make shorter code with Hash/TreeMap
 */
 public class Q012_IntegerToRoman {
     public String intToRoman(int num) {
@@ -60,6 +62,6 @@ public class Q012_IntegerToRoman {
     
     public static void main(String[] args){
     	Q012_IntegerToRoman itr = new Q012_IntegerToRoman();
-    	System.out.println(itr.intToRoman(1000));
+    	System.out.println(itr.intToRoman(2016));
     }
 }
