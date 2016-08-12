@@ -1,6 +1,6 @@
 package solutions;
 
-public class Two_Sum {
+public class Q001_TwoSum {
     public int[] twoSum(int[] nums, int target) {
         for (int first = 0, max=nums.length; first < max; first++){
             for (int second = first + 1; second < max; second++){
@@ -13,7 +13,7 @@ public class Two_Sum {
     }
     
     public static void main(String[] args){
-    	Two_Sum ts = new Two_Sum();
+    	Q001_TwoSum ts = new Q001_TwoSum();
     	int[] solution = ts.twoSum(new int[]{3,2,4}, 6);
     	System.out.printf("[%d,%d]", solution[0], solution[1]);   	
     }

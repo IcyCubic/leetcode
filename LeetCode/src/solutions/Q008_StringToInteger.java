@@ -1,6 +1,6 @@
 package solutions;
 
-public class StringToInteger {
+public class Q008_StringToInteger {
 	public int myAtoi(String str) {
 		char current;
         String wip = str;
@@ -49,7 +49,7 @@ public class StringToInteger {
     }
     
 	public static void main(String[] args){
-		StringToInteger sti = new StringToInteger();
+		Q008_StringToInteger sti = new Q008_StringToInteger();
     	int solution = sti.myAtoi("+3453623");
     	System.out.println(solution);   	
     }

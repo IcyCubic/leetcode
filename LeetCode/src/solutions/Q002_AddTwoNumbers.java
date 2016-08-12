@@ -8,7 +8,7 @@ package solutions;
  *     ListNode(int x) { val = x; }
  * }
  */
-public class AddTwoNumbers {
+public class Q002_AddTwoNumbers {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         
         boolean incriment = false;
@@ -50,7 +50,7 @@ public class AddTwoNumbers {
     }
 
 	public static void main(String[] args){
-		AddTwoNumbers add = new AddTwoNumbers();
+		Q002_AddTwoNumbers add = new Q002_AddTwoNumbers();
 		ListNode solution = add.addTwoNumbers(new ListNode(5), new ListNode(7));
 		System.out.print("["+solution.val);
 		while (null!=solution.next){

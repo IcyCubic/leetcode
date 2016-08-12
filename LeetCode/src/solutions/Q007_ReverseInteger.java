@@ -1,6 +1,6 @@
 package solutions;
 
-public class ReverseInteger {
+public class Q007_ReverseInteger {
     public int reverse(int x) {
         String input = String.valueOf(x);
         boolean negative = false;
@@ -21,7 +21,7 @@ public class ReverseInteger {
         return negative? rev*-1 : rev;
     }
     public static void main(String[] args){
-    	ReverseInteger ri = new ReverseInteger();
+    	Q007_ReverseInteger ri = new Q007_ReverseInteger();
     	int solution = ri.reverse(123456);
     	System.out.println(solution);   	
     }
