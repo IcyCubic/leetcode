@@ -22,38 +22,49 @@ Try to do this in one pass.
 public class Q019_RemoveNthFromEndOfList {
     public ListNode removeNthFromEnd(ListNode head, int n) { // head = 1>2>3>4>5, n=2
         if (head == null || n < 2) return null;
-    	ListNode result = new ListNode(0);
-    	ListNode[] buffer = new ListNode[n];
-    	int index = 1;            	
-    	buffer[0] = head;
-    	System.out.println(buffer[0].val);
+        ListNode target = head, scout = head;
+        
+        return head;
+
+// ------------------------------        
+//    	ListNode result = new ListNode(head.val);
+//    	ListNode[] buffer = new ListNode[n];
+//    	int length = 1;            	
+//    	buffer[0] = head;
+//    	System.out.println(buffer[0].val);
     	
-        while (head.next != null){ // get length
-        	head = head.next;
-        	buffer[index] = head;
-        	System.out.println("Loop Index: " + index);
-        	index++;
-        }
-        
-        int target = index - n; //3
-        System.out.println("target: " + target);
-        System.out.println("index: " + index);
-        System.out.println("n: " + n);
-        if (target == 0){
-        	return buffer[target+1];
-        } else {
-        	buffer[target-1].next = buffer[target+1];
-        }
-        
-        return result;
+//        while (head.next != null){ // get length
+//        	System.out.println("Loop Length: " + length + " value: " + head.val + " next: " + head.next);        	
+//        	head = head.next;
+//        	System.out.println(head.val);
+//        	buffer[index] = head;
+        	
+//        	length++;
+//        }
+//        
+//        int target = length - n; //3
+//
+//        if (target == 0){
+//        	return buffer[target+1];
+//        } else {
+//        	buffer[target-1].next = buffer[target+1];
+//        }
+//        
+//        return result;
     }
     
     public static void main(String[] args){
     	ListNode result, head = new ListNode(0), index = head;
     	
-    	for (int i = 1; i <= 10; i++){
+    	for (int i = 1; i < 5; i++){
     		ListNode next = new ListNode(i);
-    		index.next = next;
+    		index.next = next; // attach new node to end of list
+    		System.out.println("init value: " + index.val + " next: " + index.next);
+    		index = index.next; // moves index to latest node
+    		if (i==4){
+    			System.out.println("init value: " + index.val + " next: " + index.next);
+    		}
+
     	}
     	
     	Q019_RemoveNthFromEndOfList test = new Q019_RemoveNthFromEndOfList();
