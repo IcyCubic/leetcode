@@ -21,10 +21,24 @@ Try to do this in one pass.
  */
 public class Q019_RemoveNthFromEndOfList {
     public ListNode removeNthFromEnd(ListNode head, int n) { // head = 1>2>3>4>5, n=2
-        if (head == null || n < 2) return null;
-        ListNode target = head, scout = head;
+        if (head == null) return null;
+        ListNode result = new ListNode(9999);
+        result.next = head;
+        ListNode target = result, 
+        		 scout = result;
         
-        return head;
+//        for (int i = 0; i < n; i++){
+//        	scout = scout.next;
+//        }
+        while (null != scout.next){
+        	scout = scout.next;
+        	if (n <=0 )
+        		target = target.next;        		
+        	n--;
+        }
+        if (target.next != null)
+        	target.next = target.next.next; 
+        return result.next;
 
 // ------------------------------        
 //    	ListNode result = new ListNode(head.val);
