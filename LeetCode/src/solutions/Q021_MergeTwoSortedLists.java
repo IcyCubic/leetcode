@@ -3,7 +3,7 @@ package solutions;
  Merge two sorted linked lists and return it as a new list. 
  The new list should be made by splicing together the nodes of the first two lists.
 */
-public class Q020_MergeTwoSortedLists {
+public class Q021_MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
     	if (l1 == null && l2 == null) return null;
     	else if (l1 == null) return l2;
@@ -31,7 +31,7 @@ public class Q020_MergeTwoSortedLists {
     }
     
     public static void main(String[] args){
-    	Q020_MergeTwoSortedLists test = new Q020_MergeTwoSortedLists();
+    	Q021_MergeTwoSortedLists test = new Q021_MergeTwoSortedLists();
     	ListNode result = test.mergeTwoLists(new ListNode(3), new ListNode(5));
     	while (result != null){
     		System.out.println(result.val);
