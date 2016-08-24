@@ -1,6 +1,6 @@
 package solutions;
 
-public class Q058_LengthOfLastWord {
+public class Q058_LengthOfLastWord { //forward solution
     public int lengthOfLastWord(String s) {
         if (s == null || s.length() == 0) {
             return 0;
@@ -16,6 +16,21 @@ public class Q058_LengthOfLastWord {
         String last = trimmed.substring(index+1);
         return last.length();
     }
+    
+    public int reverse(String s) { //backward solution
+    	int length = s.length() - 1;
+    	while (length > 0 && s.charAt(length) == ' '){
+    		length--;
+    	}
+    	int result = 0;
+    	for (int i = length; i >=0; i--){
+    		if (s.charAt(length) == ' '){
+    			break;
+    		}
+    		result++;
+    	}
+    	return result;
+    } 
     
     public static void main(String[] args){
     	Q058_LengthOfLastWord test = new Q058_LengthOfLastWord();
