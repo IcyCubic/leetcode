@@ -1,7 +1,5 @@
 package solutions;
-import static java.lang.Math.toIntExact;
 
-import java.util.ArrayList;
 /*
 Given a non-negative number represented as an array of digits, plus one to the number.
 
