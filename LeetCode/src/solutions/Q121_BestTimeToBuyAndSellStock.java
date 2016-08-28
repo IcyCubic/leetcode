@@ -23,19 +23,29 @@ Output: 0
 In this case, no transaction is done, i.e. max profit = 0.
 */
 public class Q121_BestTimeToBuyAndSellStock {
+// too slow?
+//    public int maxProfit(int[] prices) {
+//        int maxProfit = 0;
+//        for (int buy = 0; buy < prices.length; buy++){
+//        	for (int sell = buy; sell < prices.length; sell++){
+//        		int profit = prices[sell] - prices[buy];
+//        		maxProfit = Math.max(maxProfit, profit);
+//        		
+//        	}
+//        }        
+//        return maxProfit;
+//    }
     public int maxProfit(int[] prices) {
         int maxProfit = 0;
-        for (int buy = 0; buy < prices.length; buy++){
-        	for (int sell = buy; sell < prices.length; sell++){
-        		int profit = prices[sell] - prices[buy];
-        		maxProfit = Math.max(maxProfit, profit);
-        		
-        	}
-        }        
+        int minVal = Integer.MAX_VALUE;
+        for (int i = 0; i < prices.length; i++){
+        	minVal = Math.min(minVal, prices[i]);
+        	maxProfit = Math.max(maxProfit, prices[i]-minVal);
+    	}
         return maxProfit;
-    }
+    }        
     public static void main(String[] args){
     	Q121_BestTimeToBuyAndSellStock test = new Q121_BestTimeToBuyAndSellStock();
-    	System.out.println(test.maxProfit(new int[] {7,6,5,4,3,2}));
+    	System.out.println(test.maxProfit(new int[] {7,6,5,4,3,2,9}));
     }
 }
