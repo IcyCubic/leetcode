@@ -1,7 +1,6 @@
 package solutions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -21,25 +20,19 @@ Return
 public class Q118_PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Integer[][] res = new Integer[numRows][];
+        List<Integer> list;
         for (int i = 0; i < numRows; i++){
-        	res[i] = new Integer[i+1];
-        	for (int j = 0; j < res[i].length; j++){
-        		if (j == 0 || j == res[i].length-1) res[i][j] = 1;
-        		else res[i][j] = res[i-1][j-1] + res[i-1][j];
+        	list = new ArrayList<Integer>(i+1);
+        	for (int j = 0; j <= i; j++){
+        		if (j == 0 || j == i) list.add(1);
+        		else list.add(result.get(i-1).get(j-1) + result.get(i-1).get(j));        		
         	}
-        	result.add(Arrays.asList(res[i]));
+        	result.add(list);
         }        
         return result;
     }
     public static void main(String[] args){
     	Q118_PascalsTriangle test = new Q118_PascalsTriangle();
     	test.generate(6);
-//        for (int i = 0; i < res.length; i++){
-//        	for (int j = 0; j < res[i].length; j++){
-//        		System.out.print(res[i][j] + " ");
-//        	}
-//        	System.out.println();
-//        }
     }
 }
