@@ -13,21 +13,27 @@ Note: The sequence of integers will be represented as a string.
 */
 public class Q038_CountAndSay {
     public String countAndSay(int n) {
-        if (n <= 1) return "1";
-        StringBuilder result = new StringBuilder();
-        result.append("1");
-        for (int i = 2; i <= n; i++){
-        	StringBuilder temp = new StringBuilder();
-        	int count = 1;
-        	int index = 0;
-        	while (index < result.length()){
-        		char current = result.charAt(index++);
-        	}
-        }
-        
-        
-        
-        return result.toString();
+    	String str = "1";
+    	for (int i = 1; i < n; i++) {
+    		str = count(str);
+    	}
+    	return str;
+    }
+    private String count(String str){
+    	StringBuilder result = new StringBuilder();
+    	char current = str.charAt(0);
+    	int count = 1;
+    	for (int i = 1; i < str.length(); i++){
+    		if (str.charAt(i) == current){
+    			count++;
+    		} else {
+    			result.append(count).append(current);
+    			current = str.charAt(i);
+    			count = 1;
+    		}    		
+    	}
+    	result.append(count).append(current);
+    	return result.toString();
     }
     // ??
 //    public String countAndSay(int n) {
@@ -54,6 +60,6 @@ public class Q038_CountAndSay {
     
     public static void main(String[] args){
     	Q038_CountAndSay test = new Q038_CountAndSay();
-    	System.out.println(test.countAndSay(11));
+    	System.out.println(test.countAndSay(5));
     }
 }
