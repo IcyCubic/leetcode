@@ -12,13 +12,27 @@ Here is an example of version numbers ordering:
 0.1 < 1.1 < 1.2 < 13.37
 */
 public class Q165_CompareVersionNumbers {
-    public int compareVersion(String version1, String version2) {
+    
+	//returns a filled in version of the shorter string array
+	private String[] fill(String[] longer, String[] shorter){
+    	String[] temp = new String[longer.length];
+    	for (int i = 0; i < temp.length; i++){
+    		if (i < shorter.length)
+    			temp[i] = shorter[i];
+    		else
+    			temp[i] = "0";        		
+    	}
+    	return temp;
+	}
+	
+	public int compareVersion(String version1, String version2) {
         String[] v1 = version1.split("[.]");        
         String[] v2 = version2.split("[.]");
         
-        if (v1.length > v2.length){
-        	
-        }
+        if (v1.length > v2.length)
+        	v2 = fill(v1, v2);
+        else if (v1.length < v2.length)
+        	v1 = fill(v2, v1);
         
         for (int i = 0; i < v1.length; i++){
         	int val1 = Integer.parseInt(v1[i]);
@@ -33,6 +47,42 @@ public class Q165_CompareVersionNumbers {
     
     public static void main(String[] args){
     	Q165_CompareVersionNumbers test = new Q165_CompareVersionNumbers();
-    	System.out.println(test.compareVersion("1", "0"));
+    	System.out.println(test.compareVersion("1.0", "0.1.2"));
     }
 }
+
+/* - 0-1ms solution for reference. One pass
+public static int compareVersion(String version1, String version2) {
+    int l1 = version1.length();
+    int l2 = version2.length();
+    int v1 = 0;
+    int v2 = 0;
+    
+    int i1 = 0;
+    int i2 = 0;
+    
+    while (i1 < l1 || i2 < l2){
+    	   	
+    	while (i1 < l1 && version1.charAt(i1)!='.'){
+        	v1 = 10*v1 + (version1.charAt(i1) - '0') ;
+        	i1++;
+    	}
+    	
+    	while (i2 < l2 && version2.charAt(i2)!='.'){
+        	v2 = 10*v2 + (version2.charAt(i2) - '0') ;
+        	i2++;
+    	}
+        	
+        if (v1 > v2) return 1;
+        else if (v1 < v2) return -1 ;
+        else {
+            v1 = 0;
+            v2 = 0;
+            i1++;
+            i2++;
+        }
+    }
+
+    return 0;
+}
+*/
