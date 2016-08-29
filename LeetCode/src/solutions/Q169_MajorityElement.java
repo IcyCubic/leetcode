@@ -36,3 +36,9 @@ public class Q169_MajorityElement {
         return max.getKey();
     }
 }
+/*/hurr
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length/2];
+    }
+*/
