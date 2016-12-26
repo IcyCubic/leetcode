@@ -1,8 +1,5 @@
 package solutions;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /*
 Given a binary tree, find its maximum depth.
 
